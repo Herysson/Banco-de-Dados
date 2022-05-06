@@ -7,7 +7,7 @@ use Biblioteca;
 /*Cria todas as tabelas do banco de dados  - Categoria - Autor - Editora - Livro - LivroAutor*/
 CREATE TABLE [Categoria] (
   [id] int not null identity,
-  [tipo_categoria] varchar(50) not null,
+  [tipo_categoria] varchar(50) not null unique,
   PRIMARY KEY ([id])
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE [Autor] (
 
 CREATE TABLE [Editora] (
   [id] int not null identity,
-  [nome] varchar(100),
+  [nome] varchar(100) unique,
   PRIMARY KEY ([id])
 );
 
