@@ -165,6 +165,17 @@ and livroautor.fk_autor = autor.id
 and livroautor.fk_livro = livro.isbn
 order by autor.nome;
 
+/*Mesmo exemplo acima usando JOIN*/
+select livro.isbn as 'ISBN', livro.titulo as 'Título', livro.ano as 'Ano', editora.nome as 'Editora', 
+concat(autor.nome, ' (' ,autor.nacionalidade, ')') as  'Autor/Nascionalidade',categoria.tipo_categoria as 'Categoria'
+from livro join editora 
+on livro.fk_editora = editora.id
+join categoria on livro.fk_categoria = categoria.id
+join livroautor on livroautor.fk_livro = livro.isbn
+join autor on livroautor.fk_autor = autor.id
+order by livro.titulo;
+
+
 /*Exercício 9:
 Crie uma consulta para relacionar todos os dados disponíveis dos livros da categoria de literatura Juvenil 
 em ordem de ano*/
